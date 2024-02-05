@@ -15,7 +15,7 @@
   > h5 {
     display: flex;
     align-items: center;
-    color: #E0D8EC;
+    color: #e0d8ec;
     font-size: 12px;
     font-weight: 100;
     > p {
@@ -24,6 +24,57 @@
       display: flex;
       margin: 5px;
       color: #ffffff;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  .header-row-first {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 10rem;
+    border-bottom: 0.1px solid #e5e7eb;
+    .links {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      color: #6b7280;
+
+      > a {
+        text-decoration: none;
+        color: #6b7280;
+        padding: 8px;
+        font-weight: 400;
+      }
+
+      > p {
+        font-weight: 200;
+        margin-left: 20px;
+        > strong {
+          color: #ea580c;
+          font-weight: 1000;
+        }
+      }
+    }
+    .header-details {
+      display: flex;
+      > p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        font-size: 12px;
+        font-weight: 400;
+        color: #6b7280;
+        > svg {
+          margin-left: 5px;
+        }
+      }
     }
   }
 }
