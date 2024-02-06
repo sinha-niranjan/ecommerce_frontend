@@ -2,6 +2,12 @@ import React from "react";
 import "./Header.scss";
 import { Link } from "react-router-dom";
 import { FaAngleDown } from "react-icons/fa6";
+import { VscThreeBars } from "react-icons/vsc";
+import { IoPersonOutline } from "react-icons/io5";
+import { CiHeart } from "react-icons/ci";
+import { CiShoppingCart } from "react-icons/ci";
+import { CiSearch } from "react-icons/ci";
+import logo from "../../assets/images/logo.png";
 
 const Header = () => {
   return (
@@ -34,6 +40,31 @@ const Header = () => {
               USD <FaAngleDown />{" "}
             </p>
             <p>Order Tracking </p>
+          </div>
+        </div>
+        <div className="header-row-second">
+          <div className="logo">
+            <img src={logo} alt="logo" />
+          </div>
+          <div className="categories">
+            <VscThreeBars />
+            categories
+          </div>
+          <div className="search-box">
+            <input type="search" name="" id="" placeholder="Search for products, categories or brands..." />
+            <CiSearch/>
+          </div>
+          <div className="account">
+            <IoPersonOutline />
+            <p>Account</p>
+          </div>
+          <div className="wishlist">
+            <CiHeart />
+            <p>Whishlist</p>
+          </div>
+          <div className="cart">
+            <CiShoppingCart />
+            <p>Your Cart</p>
           </div>
         </div>
       </div>
