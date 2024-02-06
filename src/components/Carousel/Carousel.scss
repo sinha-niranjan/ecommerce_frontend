@@ -1,0 +1,70 @@
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 700px;
+  background-image: url("../../assets/images/banner.png");
+
+  .inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-left: 10rem;
+    z-index: 10;
+    max-width: 650px;
+    .discount {
+      display: flex;
+      width: 130px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #166534;
+      border-radius: 5px;
+      background: linear-gradient(
+        90deg,
+        rgba(22, 163, 74, 0.5) 0%,
+        rgba(33, 194, 92, 0.045) 100%
+      );
+      padding: 5px;
+    }
+
+    > h3 {
+      color: #39245f;
+      font-size: 58px;
+    }
+
+    .details {
+      max-width: 500px;
+      font-size: 16px;
+      font-weight: 300;
+      margin: 10px 0;
+      color: #030712;
+    }
+
+    .offers {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      > p {
+        background-color: #634c9f;
+        color: #ffffff;
+        padding: 10px 40px 10px 15px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 10px;
+        margin-right: 20px;
+      }
+      .price {
+        color: #dc2626;
+        font-size: 28px;
+        font-weight: 600;
+        > p {
+            color: #030712;
+            font-size: 11px;
+            font-weight: 400;
+        }
+      }
+    }
+  }
+}

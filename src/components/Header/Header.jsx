@@ -48,7 +48,7 @@ const Header = () => {
           </div>
           <div className="categories">
             <VscThreeBars />
-            categories
+            Categories
           </div>
           <div className="search-box">
             <input
