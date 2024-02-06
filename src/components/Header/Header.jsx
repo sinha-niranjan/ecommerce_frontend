@@ -51,8 +51,13 @@ const Header = () => {
             categories
           </div>
           <div className="search-box">
-            <input type="search" name="" id="" placeholder="Search for products, categories or brands..." />
-            <CiSearch/>
+            <input
+              type="search"
+              name=""
+              id=""
+              placeholder="Search for products, categories or brands..."
+            />
+            <CiSearch />
           </div>
           <div className="account">
             <IoPersonOutline />
@@ -65,6 +70,32 @@ const Header = () => {
           <div className="cart">
             <CiShoppingCart />
             <p>Your Cart</p>
+          </div>
+        </div>
+        <div className="header-row-third">
+          <div className="right">
+            <span>
+              <p>Home</p>
+              <FaAngleDown />
+            </span>
+            <span>
+              <p>Shop</p>
+              <FaAngleDown />
+            </span>
+            <span>Fruits and Vegetables</span>
+            <span>Beverages</span>
+            <span>Blog</span>
+            <span>Contact</span>
+          </div>
+          <div className="left">
+            <span>
+              <p>Trending Products </p>
+              <FaAngleDown />
+            </span>
+            <span className="warning">
+              Almost Finished <p>SALE</p>
+              <FaAngleDown />
+            </span>
           </div>
         </div>
       </div>
