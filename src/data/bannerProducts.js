@@ -60,6 +60,42 @@ const fastFoods = [
   },
 ];
 
+const filterProducts = [
+  {
+    img: AppleJuice,
+  },
+  {
+    img: Melon,
+  },
+  { img: FrozenPizza },
+
+  {
+    img: OrangePulp,
+  },
+  {
+    img: Pizza,
+  },
+  {
+    img: ToiletPaper,
+  },
+  {
+    img: Pizzacheeze,
+  },
+
+  {
+    img: Spinach,
+  },
+  {
+    img: RedBaron,
+  },
+  {
+    img: Scrambler,
+  },
+  {
+    img: Strawberry,
+  },
+];
+
 const bannerProducts = [
   {
     img: Vegetables,
@@ -99,4 +135,4 @@ const bannerProducts = [
   },
 ];
 
-export { bannerProducts, newProducts, fastFoods };
+export { bannerProducts, newProducts, fastFoods,filterProducts };
