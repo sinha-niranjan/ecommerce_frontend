@@ -7,6 +7,7 @@ import {
  
 import Loader from "../components/Loader/Loader";
 import { Suspense, lazy } from "react";
+import FilterProducts from "../Pages/FilterProducts/FilterProducts";
 
 const Loadable = (Component) => (props) => {
   return (
@@ -23,6 +24,7 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route path="" element={<Home />} />
+      <Route path="filter-products" element={<FilterProducts />} />
     </Route>
   )
 );

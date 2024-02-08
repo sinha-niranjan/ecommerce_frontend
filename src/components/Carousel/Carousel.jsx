@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {   useNavigate } from "react-router-dom";
 import banner1 from "../../assets/images/banner.png";
 import banner2 from "../../assets/images/banner2.png";
 import banner3 from "../../assets/images/banner3.png";
@@ -9,6 +10,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 const images = [banner1, banner2, banner3];
 
 const Carousel = () => {
+  const navigate = useNavigate();
   const [img, setImg] = useState(0);
 
   setTimeout(() => {
@@ -45,7 +47,7 @@ const Carousel = () => {
             <h3>Top Categories</h3>
             <p>New product with updates stocks. </p>
           </span>
-          <p className="top-categories-view-all">View All <FaArrowRightLong /></p>
+          <p className="top-categories-view-all" onClick={() => navigate("/filter-products")}>View All <FaArrowRightLong /></p>
         </span>
         <div className="products">
           {bannerProducts.map((item,ind) => (

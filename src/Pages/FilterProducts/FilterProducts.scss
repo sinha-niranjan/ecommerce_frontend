@@ -1,0 +1,12 @@
+.filter-products {
+  display: grid;
+  grid-template-columns: 1fr 3.5fr;
+  height: 100vh;
+  padding: 0 10rem;
+  .filter-products-sidebar {
+    background-color: red;
+  }
+  .filter-products-main {
+    background-color: black;
+  }
+}
