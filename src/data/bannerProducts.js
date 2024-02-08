@@ -8,6 +8,58 @@ import Breakfast from "../assets/images/products/dairy.png";
 import Frozen from "../assets/images/products/frozen-foods.png";
 import Grocery from "../assets/images/products/grocery.png";
 
+import AppleJuice from "../assets/images/newProducts/appleJuice.png";
+import Melon from "../assets/images/newProducts/CantaloupeMelon.png";
+import FrozenPizza from "../assets/images/newProducts/FrozenPizza.png";
+import OrangePulp from "../assets/images/newProducts/OrangePulp.png";
+import Pizza from "../assets/images/newProducts/Pizza.png";
+import ToiletPaper from "../assets/images/newProducts/ToiletPaper.png";
+
+import Pizzacheeze from "../assets/images/newProducts/Pizzacheeze.png";
+import Spinach from "../assets/images/newProducts/Spinach.png";
+import Scrambler from "../assets/images/newProducts/Scrambler.png";
+import RedBaron from "../assets/images/newProducts/RedBaron.png";
+import Strawberry from "../assets/images/newProducts/Strawberry.png";
+
+const newProducts = [
+  {
+    img: AppleJuice,
+  },
+  {
+    img: Melon,
+  },
+  { img: FrozenPizza },
+
+  {
+    img: OrangePulp,
+  },
+  {
+    img: Pizza,
+  },
+  {
+    img: ToiletPaper,
+  },
+];
+
+const fastFoods = [
+  {
+    img: Pizzacheeze,
+  },
+
+  {
+    img: Spinach,
+  },
+  {
+    img: RedBaron,
+  },
+  {
+    img: Scrambler,
+  },
+  {
+    img: Strawberry,
+  },
+];
+
 const bannerProducts = [
   {
     img: Vegetables,
@@ -47,6 +99,4 @@ const bannerProducts = [
   },
 ];
 
-const newProducts = [1, 2, 3, 4, 5,6,7,8,9,10,11,12];
-
-export { bannerProducts, newProducts };
+export { bannerProducts, newProducts, fastFoods };

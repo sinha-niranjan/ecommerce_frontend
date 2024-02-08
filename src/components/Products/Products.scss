@@ -5,6 +5,7 @@
   justify-content: center;
   width: 100vw;
   padding: 0 10rem;
+  // background-color: #ecebee;
   background-image: linear-gradient(#ecebee, #ffffff);
   .products-heading {
     display: flex;
@@ -29,7 +30,7 @@
 
   .new-products {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto;
     .new-product {
       display: flex;
       flex-direction: column;
