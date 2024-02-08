@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import banner1 from "../../assets/images/banner.png";
 import banner2 from "../../assets/images/banner2.png";
 import banner3 from "../../assets/images/banner3.png";
 import "./Carousel.scss";
+import { bannerProducts } from "../../data/bannerProducts";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const images = [banner1, banner2, banner3];
 
@@ -35,6 +37,23 @@ const Carousel = () => {
               <p>don't miss this limited offers</p>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="top-categories">
+        <span className="top-catrgories-row">
+          <span>
+            <h3>Top Categories</h3>
+            <p>New product with updates stocks. </p>
+          </span>
+          <p className="top-categories-view-all">View All <FaArrowRightLong /></p>
+        </span>
+        <div className="products">
+          {bannerProducts.map((item) => (
+            <div className="product">
+              <img src={item.img} alt={item.text} />
+              <p>{item.text}</p>
+            </div>
+          ))}
         </div>
       </div>
     </>

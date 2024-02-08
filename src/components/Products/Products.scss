@@ -1,0 +1,117 @@
+.products-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100vw;
+  padding: 0 10rem;
+  background-image: linear-gradient(#ecebee, #ffffff);
+  .products-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > span {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      > h3 {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 30px 10px;
+      }
+      > p {
+        font-size: 13px;
+        font-weight: 300;
+        color: #9ca3af;
+      }
+    }
+  }
+
+  .new-products {
+    .new-product {
+      background-color: #fff;
+      padding: 10px;
+      max-width: 230px;
+      .product-image {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        > span {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          > p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            color: #fff;
+            background-color: #dc2626;
+            padding: 3px;
+            max-width: 40px;
+            font-size: 12px;
+            font-weight: 600;
+          }
+          > svg {
+            font-size: 20px;
+          }
+        }
+
+        > img {
+          height: 170px;
+          width: 170px;
+        }
+      }
+      .product-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 10px;
+        .product-name {
+          font-size: 13px;
+          font-weight: 600;
+          max-width: 80%;
+        }
+        .product-rating {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          min-width: 50%;
+          padding: 10px 5px;
+          > p {
+            font-size: 14px;
+            font-weight: 400;
+            color: #9ca3af;
+          }
+        }
+        .product-price {
+          color: #dc2626;
+          font-size: 22px;
+          font-weight: 600;
+        }
+        .product-stock {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding: 5px;
+          color: #16a34a;
+
+          > svg {
+            font-size: 35px;
+            padding: 2px;
+            background-color: #16a34a;
+            color: #fff;
+            border-radius: 10px;
+          }
+          >p{
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}
