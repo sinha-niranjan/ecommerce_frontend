@@ -28,14 +28,20 @@
   }
 
   .new-products {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
     .new-product {
+      display: flex;
+      flex-direction: column;
       background-color: #fff;
       padding: 10px;
-      max-width: 230px;
+      min-width: 220px;
+      border: 1px solid #e5e7eb;
       .product-image {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        
 
         > span {
           display: flex;
@@ -61,6 +67,7 @@
         > img {
           height: 170px;
           width: 170px;
+          margin: 10px 0 0 10px;
         }
       }
       .product-details {
@@ -105,7 +112,7 @@
             color: #fff;
             border-radius: 10px;
           }
-          >p{
+          > p {
             font-size: 12px;
             font-weight: 600;
             margin-left: 10px;

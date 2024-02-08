@@ -16,7 +16,7 @@ const arr = [1, 2, 3, 4, 5];
 
 const Rating = ({rating}) => {
   return arr.map((item, indx) => (
-    <img src={rating > indx ? Marked : Unmarkded} />
+    <img key={indx*100} src={rating > indx ? Marked : Unmarkded} />
   ));
 };
 

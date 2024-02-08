@@ -48,8 +48,8 @@ const Carousel = () => {
           <p className="top-categories-view-all">View All <FaArrowRightLong /></p>
         </span>
         <div className="products">
-          {bannerProducts.map((item) => (
-            <div className="product">
+          {bannerProducts.map((item,ind) => (
+            <div key={ind} className="product">
               <img src={item.img} alt={item.text} />
               <p>{item.text}</p>
             </div>
