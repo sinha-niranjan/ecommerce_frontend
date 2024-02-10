@@ -3,8 +3,119 @@
   grid-template-columns: 1fr 3.5fr;
   padding: 0 10rem;
   .filter-products-sidebar {
-    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    // border: 1px solid black;
+    .price-filter {
+      margin: 10px;
+      padding: 30px 0;
+      border-bottom: 1px solid #e5e7eb;
+      > h3 {
+        font-size: 15px;
+      }
+      .price-inputs {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .price-input {
+          padding-top: 10px;
+          > p {
+            font-size: 12px;
+            color: #6b7280;
+            padding: 5px;
+          }
+          > input {
+            outline: none;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            padding: 10px 5px;
+            width: 100px;
+          }
+        }
+        .diff {
+          padding: 10px 10px 0 10px;
+        }
+      }
+      .price-range {
+        padding: 10px;
+        width: 100%;
+        > input {
+          width: 100%;
+        }
+      }
+      .filter-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #634c9f;
+        color: #fff;
+        padding: 10px 5px;
+        width: 100px;
+        border-radius: 10px;
+        border: 2px solid black;
+
+        &:hover {
+          background-color: #fff;
+          color: #000;
+        }
+        > p {
+          font-size: 14px;
+          font-weight: 600;
+        }
+      }
+    }
+    .category-filter {
+      margin: 10px;
+      padding: 30px 0;
+      border-bottom: 1px solid #e5e7eb;
+      > h3 {
+        font-size: 15px;
+      }
+      .categories-checkbox {
+        padding: 10px 0;
+        .category-checkbox {
+          margin: 10px 0;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          .checkbox {
+            border: 2px solid #d1d5db;
+            border-radius: 5px;
+            width: 25px;
+            height: 25px;
+            margin-right: 20px;
+          }
+          > p {
+            font-size: 16px;
+          }
+        }
+      }
+      .categories-resest {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #634c9f;
+        color: #fff;
+        padding: 10px 5px;
+
+        border-radius: 10px;
+        border: 2px solid black;
+
+        &:hover {
+          background-color: #fff;
+          color: #000;
+        }
+        > p {
+          font-size: 14px;
+          font-weight: 600;
+        }
+      }
+    }
+    
   }
+
   .filter-products-main {
     display: flex;
     flex-direction: column;
@@ -16,10 +127,9 @@
       justify-content: center;
       align-items: center;
       padding: 30px;
-      >img{
+      > img {
         width: 100%;
         height: auto;
-
       }
     }
 

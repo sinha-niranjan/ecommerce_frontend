@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./footer.scss";
 
 const Footer = () => {
+  const [email,setEmail] = useState('')
   return (
     <div className="footer">
       <div className="footer-top">
@@ -14,7 +15,7 @@ const Footer = () => {
         </div>
         <div className="footer-top-left">
           <div className="footer-top-left-input-box">
-            <input type="text" placeholder="Enter your email address" />
+            <input type="text" placeholder="Enter your email address" value={email} onChange={(e) => setEmail(e.target.value)} />
             <span>SEND</span>
           </div>
           <span>
