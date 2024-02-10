@@ -33,13 +33,25 @@ const FilterProducts = () => {
           <div className="price-inputs">
             <div className="price-input">
               <p>Min-price</p>
-              <input type="number" value={minValue} onChange={(e) => {setMinValue(e.target.value)}} />
+              <input
+                type="number"
+                value={minValue}
+                onChange={(e) => {
+                  setMinValue(e.target.value);
+                }}
+              />
             </div>
             <div className="diff">-</div>
             <div className="price-input">
               {" "}
               <p>Max-price</p>
-              <input type="number" value={maxValue} onChange={(e) => {setMaxValue(e.target.value)}} />
+              <input
+                type="number"
+                value={maxValue}
+                onChange={(e) => {
+                  setMaxValue(e.target.value);
+                }}
+              />
             </div>
           </div>
           <div className="price-range">
@@ -88,8 +100,7 @@ const FilterProducts = () => {
             <p>Reset Categories</p>
           </div>
         </div>
-        <div className="filter-color"></div>
-        <div className="filter-status"></div>
+         
       </div>
       <FillterProductsMain />
     </div>
