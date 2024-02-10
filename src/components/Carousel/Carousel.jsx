@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {   useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import banner1 from "../../assets/images/banner.png";
 import banner2 from "../../assets/images/banner2.png";
 import banner3 from "../../assets/images/banner3.png";
@@ -33,7 +33,9 @@ const Carousel = () => {
             Don't miss these opportunities...{" "}
           </span>
           <div className="offers">
-            <p>Shop Now</p>
+            <p onClick={() => navigate("/filter-products")}>
+              Shop Now <FaArrowRightLong />
+            </p>
             <div className="price">
               ₹217
               <p>don't miss this limited offers</p>
@@ -47,10 +49,15 @@ const Carousel = () => {
             <h3>Top Categories</h3>
             <p>New product with updates stocks. </p>
           </span>
-          <p className="top-categories-view-all" onClick={() => navigate("/filter-products")}>View All <FaArrowRightLong /></p>
+          <p
+            className="top-categories-view-all"
+            onClick={() => navigate("/filter-products")}
+          >
+            View All <FaArrowRightLong />
+          </p>
         </span>
         <div className="products">
-          {bannerProducts.map((item,ind) => (
+          {bannerProducts.map((item, ind) => (
             <div key={ind} className="product">
               <img src={item.img} alt={item.text} />
               <p>{item.text}</p>

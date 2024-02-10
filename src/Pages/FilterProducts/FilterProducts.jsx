@@ -1,20 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./FilterProducts.scss";
 import FillterProductsMain from "./FillterProductsMain";
-
-const categroies = [
-  { text: "Fruit & Vegtables" },
-  { text: "Baby & Pregnancy" },
-  { text: "Beverages" },
-  { text: "Meat & Seafood" },
-  { text: "Biscuits & Snacks" },
-  { text: "Bread & Bakery" },
-  { text: "Breakfast & Dairy" },
-  { text: "Frozen Foods" },
-  { text: "Grocery  & Staples" },
-  { text: "Healthcare" },
-  { text: "Household Needs" },
-];
+// import { Productcategroies } from "../../data/categories";
+import { Productcategroies } from "../../data/bannerProducts";
 
 const FilterProducts = () => {
   const [categories, setCategories] = useState([]);
@@ -64,7 +52,7 @@ const FilterProducts = () => {
         <div className="category-filter">
           <h3>Product Categories</h3>
           <div className="categories-checkbox">
-            {categroies.map((category, ind) => (
+            {Productcategroies.map((category, ind) => (
               <div
                 key={ind}
                 className="category-checkbox"
@@ -100,7 +88,6 @@ const FilterProducts = () => {
             <p>Reset Categories</p>
           </div>
         </div>
-         
       </div>
       <FillterProductsMain />
     </div>

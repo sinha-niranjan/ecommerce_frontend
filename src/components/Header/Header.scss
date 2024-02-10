@@ -86,6 +86,7 @@
     padding: 0 10rem;
     border-bottom: 0.1px solid #e5e7eb;
     background-color: #f3f4f6;
+
     .logo {
       padding: 5px;
 
@@ -109,6 +110,33 @@
         margin: 5px;
         font-size: 20px;
         cursor: pointer;
+      }
+    }
+    .proudct-categories {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      z-index: 20;
+      position: absolute;
+      top: 110px;
+      background-color: #fff;
+      overflow-y: auto;
+      background-color: #f3f4f6;
+      padding-top: 10px;
+      transition: all 0.5s ease-in-out;
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 12px 30px;
+        // border-bottom: 1px solid #d1d5db;
+
+        &:hover {
+          color: #634c9f;
+        }
       }
     }
     .search-box {

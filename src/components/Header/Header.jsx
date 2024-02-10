@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaAngleDown } from "react-icons/fa6";
 import { VscThreeBars } from "react-icons/vsc";
 import { IoPersonOutline } from "react-icons/io5";
@@ -8,8 +8,13 @@ import { CiHeart } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
 import logo from "../../assets/images/logo.png";
+// import { Productcategories } from "../../data/categories";
+import { Productcategroies } from "../../data/bannerProducts";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  console.log(isOpen);
   return (
     <>
       <div className="discount">
@@ -43,12 +48,26 @@ const Header = () => {
           </div>
         </div>
         <div className="header-row-second">
-          <div className="logo">
+          <div className="logo" onClick={() => navigate("/")}>
             <img src={logo} alt="logo" />
           </div>
-          <div className="categories">
+          <div
+            className="categories"
+            onClick={() => setIsOpen((prev) => !prev)}
+          >
             <VscThreeBars />
             Categories
+          </div>
+          <div
+            className="proudct-categories"
+            style={{ display: isOpen ? "block" : "none" }}
+          >
+            {Productcategroies.map((category) => (
+              <div>
+                {" "}
+                <p>{category.text}</p>{" "}
+              </div>
+            ))}
           </div>
           <div className="search-box">
             <input
