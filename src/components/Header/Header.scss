@@ -226,3 +226,33 @@
     }
   }
 }
+
+@media screen and (max-width: 1500px) {
+  .header {
+    .header-row-second {
+      padding: 0 5rem;
+    }
+    .header-row-first {
+      padding: 0 5rem;
+    }
+    .header-row-third{
+      padding: 0 5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 1220px) {
+  .discount {
+    display: none;
+  }
+  .header {
+    .header-row-second {
+      padding: 0 5rem;
+      .search-box {
+        > input {
+          width: 300px;
+        }
+      }
+    }
+  }
+}

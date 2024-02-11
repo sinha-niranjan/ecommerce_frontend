@@ -113,7 +113,6 @@
         }
       }
     }
-    
   }
 
   .filter-products-main {
@@ -225,6 +224,18 @@
             }
           }
         }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .filter-products {
+    padding: 0 2rem;
+    grid-template-columns: 1fr 3fr;
+
+    .filter-products-main {
+      .filter-products-section {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
   }
