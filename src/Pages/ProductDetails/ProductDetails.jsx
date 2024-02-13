@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Organic, Rating } from "../../components/Tags/Tags";
 import "./ProductDetails.scss";
 import image from "../../assets/images/newProducts/banana.png";
@@ -9,6 +9,11 @@ import { CiCreditCard1 } from "react-icons/ci";
 import { MdSecurity } from "react-icons/md";
 
 const ProductDetails = () => {
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <div className="product-details">
       <div className="product-details-right">

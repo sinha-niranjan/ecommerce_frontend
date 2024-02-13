@@ -3,9 +3,10 @@ import "./Products.scss";
 import { Organic, Rating } from "../Tags/Tags";
 import { CiHeart } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
-
-const ProductSection = ({products}) => {
+const ProductSection = ({ products }) => {
+  const navigate = useNavigate();
   return (
     <div className="products-section">
       <div className="products-heading">
@@ -17,7 +18,11 @@ const ProductSection = ({products}) => {
 
       <div className="new-products">
         {products.products.map((product, ind) => (
-          <div key={ind} className="new-product">
+          <div
+            key={ind}
+            className="new-product"
+            onClick={() => navigate("/products-details")}
+          >
             <div className="product-image">
               <span>
                 <p>75%</p>

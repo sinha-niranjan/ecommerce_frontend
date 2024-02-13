@@ -3,6 +3,7 @@ import { CiHeart, CiShoppingCart } from "react-icons/ci";
 import banner from "../../assets/images/banner4.png";
 import { Organic, Rating } from "../../components/Tags/Tags";
 import { filterProducts } from "../../data/bannerProducts";
+import { useNavigate } from "react-router-dom";
 
 const products = {
   heading: "FILTERED PRODUCTS",
@@ -11,6 +12,7 @@ const products = {
 };
 
 const FillterProductsMain = () => {
+  const navigate = useNavigate();
   return (
     <div className="filter-products-main">
       <div className="filter-products-carousel">
@@ -18,7 +20,7 @@ const FillterProductsMain = () => {
       </div>
       <div className="filter-products-section">
         {products.products.map((product, ind) => (
-          <div key={ind} className="new-product">
+          <div key={ind} className="new-product" onClick={() => navigate("/products-details")}>
             <div className="product-image">
               <span>
                 <p>75%</p>
