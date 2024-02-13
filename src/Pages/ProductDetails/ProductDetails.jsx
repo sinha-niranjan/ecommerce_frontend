@@ -5,6 +5,8 @@ import image from "../../assets/images/newProducts/banana.png";
 import { RiSubtractFill } from "react-icons/ri";
 import { MdAdd } from "react-icons/md";
 import { CiShoppingBasket } from "react-icons/ci";
+import { CiCreditCard1 } from "react-icons/ci";
+import { MdSecurity } from "react-icons/md";
 
 const ProductDetails = () => {
   return (
@@ -41,6 +43,24 @@ const ProductDetails = () => {
             <div className="buybuttom">
               <CiShoppingBasket />
               <p>Buy Now</p>
+            </div>
+          </div>
+          <div className="product-payment-offers">
+            <div className="payment">
+              <CiCreditCard1 />
+              <span>
+                <strong>Payment.</strong> Payment upon reciept of goods,payment
+                by card in department, Google Pay, Online card, -5% discount in
+                case of payment
+              </span>
+            </div>
+            <div className="warranty">
+              <MdSecurity />
+              <span>
+                <strong>Warranty.</strong>
+                The Consumer Protection Act does not provide for the return of
+                this product of proper quality.
+              </span>
             </div>
           </div>
         </div>
