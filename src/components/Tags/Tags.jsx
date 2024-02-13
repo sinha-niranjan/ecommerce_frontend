@@ -15,7 +15,7 @@ const ColdSale = () => {
 const arr = [1, 2, 3, 4, 5];
 
 const Rating = ({rating}) => {
-  return arr.map((item, indx) => (
+  return arr.map((_, indx) => (
     <img key={indx*100} src={rating > indx ? Marked : Unmarkded} />
   ));
 };
