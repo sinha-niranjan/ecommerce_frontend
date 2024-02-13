@@ -29,7 +29,7 @@ const ProductSection = ({ products }) => {
 
                 <CiHeart />
               </span>
-              <img src={product.img} alt={"apple juice"} />
+              <img loading="lazy" src={product.img} alt={"apple juice"} />
               <Organic />
             </div>
             <div className="product-details">

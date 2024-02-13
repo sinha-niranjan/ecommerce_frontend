@@ -59,7 +59,7 @@ const Carousel = () => {
         <div className="products">
           {bannerProducts.map((item, ind) => (
             <div key={ind} className="product" onClick={() => navigate("/filter-products")}>
-              <img src={item.img} alt={item.text} />
+              <img loading="lazy" src={item.img} alt={item.text} />
               <p>{item.text}</p>
             </div>
           ))}

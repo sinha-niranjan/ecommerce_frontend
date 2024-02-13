@@ -49,7 +49,8 @@ const Header = () => {
         </div>
         <div className="header-row-second">
           <div className="logo" onClick={() => navigate("/")}>
-            <img src={logo} alt="logo" />
+            <img loading="lazy"
+              src={logo} alt="logo" />
           </div>
           <div
             className="categories"

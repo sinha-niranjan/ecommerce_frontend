@@ -16,7 +16,7 @@ const FillterProductsMain = () => {
   return (
     <div className="filter-products-main">
       <div className="filter-products-carousel">
-        <img src={banner} />
+        <img loading="lazy" src={banner} />
       </div>
       <div className="filter-products-section">
         {products.products.map((product, ind) => (
@@ -27,7 +27,7 @@ const FillterProductsMain = () => {
 
                 <CiHeart />
               </span>
-              <img src={product.img} alt={"apple juice"} />
+              <img loading="lazy" src={product.img} alt={"apple juice"} />
               <Organic />
             </div>
             <div className="product-details">

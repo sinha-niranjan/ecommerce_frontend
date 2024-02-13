@@ -22,7 +22,7 @@ const ProductDetails = () => {
           <Organic />
         </div>
         <div className="product-details-image">
-          <img src={image} alt="product-image" />
+          <img loading="lazy" src={image} alt="product-image" />
         </div>
       </div>
       <div className="product-details-left">
