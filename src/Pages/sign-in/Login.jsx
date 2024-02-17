@@ -3,6 +3,7 @@ import "./Login.scss";
 import logo from "../../assets/images/logo.png";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { PiArrowRightBold } from "react-icons/pi";
 
 const Login = () => {
   const [email, setEmail] = useState();
@@ -14,7 +15,7 @@ const Login = () => {
         <img src={logo} alt="logo" />
       </div>
 
-      <div className="login-innerbox">
+      <div className="login-inner-box">
         <p>welcome back !!!</p>
         <h2>Sign in</h2>
         <form action="">
@@ -54,8 +55,17 @@ const Login = () => {
               )}
             </div>
           </div>
+          <div className="login-btn">
+            <p>SIGN IN</p>
+            <PiArrowRightBold />
+          </div>
         </form>
       </div>
+
+      <div className="login-remark">
+        <span>I don't have an account ? <strong>Sign up </strong></span>
+      </div>
+
     </div>
   );
 };
