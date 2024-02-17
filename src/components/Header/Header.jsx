@@ -49,8 +49,7 @@ const Header = () => {
         </div>
         <div className="header-row-second">
           <div className="logo" onClick={() => navigate("/")}>
-            <img loading="lazy"
-              src={logo} alt="logo" />
+            <img loading="lazy" src={logo} alt="logo" />
           </div>
           <div
             className="categories"
@@ -73,13 +72,11 @@ const Header = () => {
           <div className="search-box">
             <input
               type="search"
-              name=""
-              id=""
               placeholder="Search for products, categories or brands..."
             />
             <CiSearch />
           </div>
-          <div className="account">
+          <div className="account" onClick={() => navigate("/auth/sign-in")}>
             <IoPersonOutline />
             <p>Account</p>
           </div>
