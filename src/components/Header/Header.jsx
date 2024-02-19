@@ -51,24 +51,27 @@ const Header = () => {
           <div className="logo" onClick={() => navigate("/")}>
             <img loading="lazy" src={logo} alt="logo" />
           </div>
-          <div
-            className="categories"
-            onClick={() => setIsOpen((prev) => !prev)}
-          >
-            <VscThreeBars />
-            Categories
+          <div className="products-categories">
+            <div
+              className="categories"
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
+              <VscThreeBars />
+              Categories
+            </div>
+            <div
+              className="proudct-categories"
+              // style={{ display: isOpen ? "block" : "none" }}
+            >
+              {Productcategroies.map((category) => (
+                <div>
+                  {" "}
+                  <p>{category.text}</p>{" "}
+                </div>
+              ))}
+            </div>
           </div>
-          <div
-            className="proudct-categories"
-            style={{ display: isOpen ? "block" : "none" }}
-          >
-            {Productcategroies.map((category) => (
-              <div>
-                {" "}
-                <p>{category.text}</p>{" "}
-              </div>
-            ))}
-          </div>
+
           <div className="search-box">
             <input
               type="search"

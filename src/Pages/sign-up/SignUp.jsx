@@ -19,7 +19,7 @@ const SignUp = () => {
 
   return (
     <div className="signUp-main-box">
-      <div className="signUp-logo">
+      <div className="signUp-logo" onClick={() => navigate("/")}>
         <img src={logo} alt="logo" />
       </div>
 

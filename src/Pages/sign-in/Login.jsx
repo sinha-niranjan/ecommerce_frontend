@@ -13,7 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
   return (
     <div className="login-main-box">
-      <div className="login-logo">
+      <div className="login-logo" onClick={() => navigate("/")}>
         <img src={logo} alt="logo" />
       </div>
 
