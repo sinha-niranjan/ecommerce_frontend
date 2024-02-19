@@ -4,11 +4,13 @@ import logo from "../../assets/images/logo.png";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { PiArrowRightBold } from "react-icons/pi";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
   return (
     <div className="login-main-box">
       <div className="login-logo">
@@ -63,7 +65,7 @@ const Login = () => {
       </div>
 
       <div className="login-remark">
-        <span>I don't have an account ? <strong>Sign up </strong></span>
+        <span>I don't have an account ? <strong onClick={() => navigate("/auth/sign-up")}>Sign up </strong></span>
       </div>
 
     </div>

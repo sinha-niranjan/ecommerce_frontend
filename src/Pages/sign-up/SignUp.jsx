@@ -4,12 +4,19 @@ import logo from "../../assets/images/logo.png";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { PiArrowRightBold } from "react-icons/pi";
+import { useNavigate } from "react-router-dom";
+import avatarImage from "../../assets/images/logo/avatar.png";
 
 const SignUp = () => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [open, setOpen] = useState(false);
+  const [avatar, setAvatar] = useState("");
+  const [date, setDate] = useState();
+
+  const navigate = useNavigate();
+
   return (
     <div className="signUp-main-box">
       <div className="signUp-logo">
@@ -17,8 +24,12 @@ const SignUp = () => {
       </div>
 
       <div className="signUp-inner-box">
-        <p>welcome back !!!</p>
-        <h2>Sign up</h2>
+      <h2>Sign up</h2>
+        <img
+          src={avatar ? URL.createObjectURL(avatar) : avatarImage}
+          alt="avatar-image"
+        />
+        
         <form action="">
           <div className="input-box-name">
             <p>Name</p>
@@ -39,7 +50,6 @@ const SignUp = () => {
           <div className="input-box-password">
             <div className="label">
               <p>Password</p>
-              <p>Forgot Password ?</p>
             </div>
             <div className="input">
               <input
@@ -64,6 +74,22 @@ const SignUp = () => {
               )}
             </div>
           </div>
+          <div className="input-box-file">
+            <p>Avatar</p>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setAvatar(e.target.files[0])}
+            />
+          </div>
+          <div className="input-box-dob">
+            <p>Date of birth</p>
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </div>
           <div className="signUp-btn">
             <p>SIGN IN</p>
             <PiArrowRightBold />
@@ -73,7 +99,8 @@ const SignUp = () => {
 
       <div className="signUp-remark">
         <span>
-          I have an account ? <strong>Sign in </strong>
+          I have an account ?{" "}
+          <strong onClick={() => navigate("/auth/sign-in")}>Sign in </strong>
         </span>
       </div>
     </div>
