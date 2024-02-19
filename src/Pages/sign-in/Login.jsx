@@ -5,12 +5,32 @@ import { FaRegEyeSlash } from "react-icons/fa";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { PiArrowRightBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userExist, userdata } from "../../redux/reducer/userReducer";
+import { useLoginMutation } from "../../redux/api/userAPI";
 
 const Login = () => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [open, setOpen] = useState(false);
+  const [login] = useLoginMutation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const loginHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await login({ email, password });
+      const data = res?.data?.data;
+  
+      if ( res?.data?.success) {
+        dispatch(userdata(data?.user));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="login-main-box">
       <div className="login-logo" onClick={() => navigate("/")}>
@@ -57,7 +77,7 @@ const Login = () => {
               )}
             </div>
           </div>
-          <div className="login-btn">
+          <div className="login-btn" onClick={loginHandler}>
             <p>SIGN IN</p>
             <PiArrowRightBold />
           </div>
@@ -65,9 +85,11 @@ const Login = () => {
       </div>
 
       <div className="login-remark">
-        <span>I don't have an account ? <strong onClick={() => navigate("/auth/sign-up")}>Sign up </strong></span>
+        <span>
+          I don't have an account ?{" "}
+          <strong onClick={() => navigate("/auth/sign-up")}>Sign up </strong>
+        </span>
       </div>
-
     </div>
   );
 };
