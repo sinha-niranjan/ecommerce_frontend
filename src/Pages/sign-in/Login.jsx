@@ -6,7 +6,7 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { PiArrowRightBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { userExist, userdata } from "../../redux/reducer/userReducer";
+import { userdata } from "../../redux/reducer/userReducer";
 import { useLoginMutation } from "../../redux/api/userAPI";
 
 const Login = () => {
@@ -22,9 +22,14 @@ const Login = () => {
     try {
       const res = await login({ email, password });
       const data = res?.data?.data;
-  
-      if ( res?.data?.success) {
+      // console.log(data);
+
+      document.cookie = `Accesstoken=${data.accessToken}`;
+      document.cookie = `Refreshtoken=${data.refreshToken}`;
+
+      if (res?.data?.success) {
         dispatch(userdata(data?.user));
+        navigate("/");
       }
     } catch (error) {
       console.log(error);

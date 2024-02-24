@@ -10,11 +10,33 @@ import { CiSearch } from "react-icons/ci";
 import logo from "../../assets/images/logo.png";
 // import { Productcategories } from "../../data/categories";
 import { Productcategroies } from "../../data/bannerProducts";
+import { useDispatch, useSelector } from "react-redux";
+import { useLogoutMutation } from "../../redux/api/userAPI";
+import {  userdata } from "../../redux/reducer/userReducer";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  console.log(isOpen);
+  const { user } = useSelector((state) => state.userReducer);
+  const [logout] = useLogoutMutation();
+
+  const logoutHandler = async () => {
+    const cookie = document.cookie?.split("Refreshtoken=");
+
+    const accessToken = cookie[0]?.split("=")[1]?.replace(";", "");
+    const refreshToken = cookie[1];
+
+    // console.log(accessToken, refreshToken);
+    const res = await logout(accessToken);
+    document.cookie = "Accesstoken=; Max-Age=0;secure";
+    document.cookie = "Refreshtoken=; Max-Age=0;secure";
+
+    if (res?.data?.success) {
+      dispatch(userdata(null));
+      navigate("/");
+    }
+  };
   return (
     <>
       <div className="discount">
@@ -31,7 +53,7 @@ const Header = () => {
         <div className="header-row-first">
           <div className="links">
             <Link>About Us</Link>
-            <Link>My Account</Link>
+            <Link>{user ? user?.name : "My Account"}</Link>
             <Link>Wishlist</Link>
             <p>
               We deliver to you every day from <strong>7:00 to 23:00</strong>
@@ -79,9 +101,12 @@ const Header = () => {
             />
             <CiSearch />
           </div>
-          <div className="account" onClick={() => navigate("/auth/sign-in")}>
+          <div
+            className="account"
+            onClick={() => (user ? logoutHandler() : navigate("/auth/sign-in"))}
+          >
             <IoPersonOutline />
-            <p>Account</p>
+            <p>{user ? user.name : "Account"}</p>
           </div>
           <div className="wishlist">
             <CiHeart />
