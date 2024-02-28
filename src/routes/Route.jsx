@@ -14,6 +14,8 @@ const Loadable = (Component) => (props) => {
   );
 };
 
+const Profile = Loadable(lazy(() => import("../Pages/profile/Profile")));
+
 const Home = Loadable(lazy(() => import("../Pages/Home/Home")));
 const Layout = Loadable(lazy(() => import("../Layout/Layout")));
 const ProductDetails = Loadable(
@@ -35,6 +37,7 @@ const Router = () => {
               authenticated() ? <ProductDetails /> : <>Not authorized .... </>
             }
           />
+          <Route path="my-profile" element={<Profile />} />
         </Route>
 
         <Route path="/auth" element={<AuthLayout />}>

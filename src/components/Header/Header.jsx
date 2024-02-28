@@ -103,7 +103,7 @@ const Header = () => {
           </div>
           <div
             className="account"
-            onClick={() => (user ? logoutHandler() : navigate("/auth/sign-in"))}
+            onClick={() => (user ? navigate("/my-profile") : navigate("/auth/sign-in"))}
           >
             <IoPersonOutline />
             <p>{user ? user.name : "Account"}</p>
