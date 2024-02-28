@@ -1,10 +1,32 @@
 import React from "react";
-import "./Profile.scss";
 import { IoPersonOutline } from "react-icons/io5";
-
-const options = ["Dashboard", "Orders","Whislist", "Addresses","Account Details","Logout"];
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useLogoutMutation } from "../../redux/api/userAPI";
+import { userdata } from "../../redux/reducer/userReducer";
+import "./Profile.scss";
+ 
 
 const Profile = () => {
+  const [logout] = useLogoutMutation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const logoutHandler = async () => {
+    const cookie = document.cookie?.split("Refreshtoken=");
+
+    const accessToken = cookie[0]?.split("=")[1]?.replace(";", "");
+    const refreshToken = cookie[1];
+
+    // console.log(accessToken, refreshToken);
+    const res = await logout(accessToken);
+    document.cookie = "Accesstoken=; Max-Age=0;secure";
+    document.cookie = "Refreshtoken=; Max-Age=0;secure";
+
+    if (res?.data?.success) {
+      dispatch(userdata(null));
+      navigate("/");
+    }
+  };
   return (
     <div className="profile-page">
       <div className="rightSide">
@@ -19,11 +41,24 @@ const Profile = () => {
         </div>
 
         <div className="options">
-          {options.map((option, ind) => (
-            <div className="option" key={ind}>
-              <p>{option}</p>
-            </div>
-          ))}
+          <div className="option">
+            <p>Dashboard</p>
+          </div>
+          <div className="option">
+            <p>Orders</p>
+          </div>{" "}
+          <div className="option">
+            <p>Whislist</p>
+          </div>{" "}
+          <div className="option">
+            <p>Addresses</p>
+          </div>{" "}
+          <div className="option">
+            <p>Account Details</p>
+          </div>{" "}
+          <div className="option" >
+            <p onClick={logoutHandler}>Logout</p>
+          </div>
         </div>
       </div>
       <div className="leftSide"></div>

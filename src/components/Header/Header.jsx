@@ -1,42 +1,21 @@
 import React, { useState } from "react";
-import "./Header.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { CiHeart, CiSearch, CiShoppingCart } from "react-icons/ci";
 import { FaAngleDown } from "react-icons/fa6";
-import { VscThreeBars } from "react-icons/vsc";
 import { IoPersonOutline } from "react-icons/io5";
-import { CiHeart } from "react-icons/ci";
-import { CiShoppingCart } from "react-icons/ci";
-import { CiSearch } from "react-icons/ci";
+import { VscThreeBars } from "react-icons/vsc";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
+import "./Header.scss";
 // import { Productcategories } from "../../data/categories";
+import { useSelector } from "react-redux";
 import { Productcategroies } from "../../data/bannerProducts";
-import { useDispatch, useSelector } from "react-redux";
-import { useLogoutMutation } from "../../redux/api/userAPI";
-import {  userdata } from "../../redux/reducer/userReducer";
 
 const Header = () => {
-  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.userReducer);
-  const [logout] = useLogoutMutation();
 
-  const logoutHandler = async () => {
-    const cookie = document.cookie?.split("Refreshtoken=");
-
-    const accessToken = cookie[0]?.split("=")[1]?.replace(";", "");
-    const refreshToken = cookie[1];
-
-    // console.log(accessToken, refreshToken);
-    const res = await logout(accessToken);
-    document.cookie = "Accesstoken=; Max-Age=0;secure";
-    document.cookie = "Refreshtoken=; Max-Age=0;secure";
-
-    if (res?.data?.success) {
-      dispatch(userdata(null));
-      navigate("/");
-    }
-  };
+  
   return (
     <>
       <div className="discount">
