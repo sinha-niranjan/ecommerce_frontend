@@ -5,6 +5,7 @@ import { Suspense, lazy } from "react";
 import AuthLayout from "../Layout/AuthLayout";
 import Login from "../Pages/sign-in/Login";
 import SignUp from "../Pages/sign-up/SignUp";
+import { authenticated } from "../utils/authentication";
 const Loadable = (Component) => (props) => {
   return (
     <Suspense fallback={<Loader />}>
@@ -21,19 +22,24 @@ const ProductDetails = Loadable(
 const FilterProducts = Loadable(
   lazy(() => import("../Pages/FilterProducts/FilterProducts"))
 );
-  const Router = () => {
+const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="" element={<Home />} />
           <Route path="filter-products" element={<FilterProducts />} />
-          <Route path="products-details" element={<ProductDetails />} />
+          <Route
+            path="products-details"
+            element={
+              authenticated() ? <ProductDetails /> : <>Not authorized .... </>
+            }
+          />
         </Route>
 
-        <Route path="/auth" element={<AuthLayout />} >
+        <Route path="/auth" element={<AuthLayout />}>
           <Route path="sign-in" element={<Login />} />
-          <Route path="sign-up" element={<SignUp/>} />
+          <Route path="sign-up" element={<SignUp />} />
         </Route>
       </Routes>
     </BrowserRouter>
@@ -55,5 +61,3 @@ export default Router;
 //     </Route>,
 //   ])
 // );
-
-

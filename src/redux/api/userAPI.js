@@ -34,13 +34,22 @@ export const userAPI = createApi({
         url: "logout",
         method: "GET",
         headers: {
-          "Authorization":` Bearer ${accessToken}`
-        }
+          Authorization: ` Bearer ${accessToken}`,
+        },
       }),
       invalidatesTags: ["users"],
+    }),
+    tokenExist: builder.mutation({
+      query: (accessToken) => ({
+        url: "tokenLogin",
+        method: "GET",
+        headers: {
+          Authorization: ` Bearer ${accessToken}`,
+        },
+      }),
     }),
   }),
 });
 
-export const { useNewUserMutation, useLoginMutation, useLogoutMutation } =
+export const { useNewUserMutation, useLoginMutation, useLogoutMutation, useTokenExistMutation } =
   userAPI;
