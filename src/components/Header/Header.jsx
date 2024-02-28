@@ -85,10 +85,10 @@ const Header = () => {
               className="proudct-categories"
               // style={{ display: isOpen ? "block" : "none" }}
             >
-              {Productcategroies.map((category) => (
-                <div>
+              {Productcategroies.map((category,ind) => (
+                <div key={ind}>
                   {" "}
-                  <p>{category.text}</p>{" "}
+                  <p >{category.text}</p>{" "}
                 </div>
               ))}
             </div>
