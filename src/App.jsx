@@ -11,9 +11,11 @@ function App() {
 
   useEffect(() => {
     const userExist = async () => {
-      const cookie = document.cookie?.split("Refreshtoken=");
-      const accessToken = cookie[0]?.split("=")[1]?.replace(";", "");
-      const res = await tokenExist(accessToken);
+      const accessToken = localStorage.getItem("AccessToken");
+ 
+      // const cookie = document.cookie?.split("Refreshtoken=");
+      // const accessToken = cookie[0]?.split("=")[1]?.replace(";", "");
+      const res = await tokenExist(accessToken || "");
       const data = res?.data;
       dispatch(
         data?.statusCode === 200 ? userdata(data?.data) : userdata(null)

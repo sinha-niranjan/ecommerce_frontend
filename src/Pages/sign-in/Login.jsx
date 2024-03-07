@@ -22,10 +22,12 @@ const Login = () => {
     try {
       const res = await login({ email, password });
       const data = res?.data?.data;
-      // console.log(data);
 
-      document.cookie = `Accesstoken=${data.accessToken}`;
-      document.cookie = `Refreshtoken=${data.refreshToken}`;
+      localStorage.setItem("AccessToken", data.accessToken);
+      localStorage.setItem("RefreshToken", data.refreshToken);
+
+      // document.cookie = `Accesstoken=${data.accessToken}`;
+      // document.cookie = `Refreshtoken=${data.refreshToken}`;
 
       if (res?.data?.success) {
         dispatch(userdata(data?.user));
