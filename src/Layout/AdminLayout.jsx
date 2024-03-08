@@ -1,25 +1,26 @@
 import React, { useEffect } from "react";
+import Header from "../components/Header/Header";
 import { Outlet, useNavigate } from "react-router-dom";
-import "./AuthLayout.scss";
+import Footer from "../components/Footer/Footer";
 import { useSelector } from "react-redux";
 
-const AuthLayout = () => {
+const AdminLayout = () => {
   const { user } = useSelector((state) => state.userReducer);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user !== null) {
+    if (user !== "admin") {
       navigate("/");
     }
-  }, []);
+  },[]);
 
   return (
     <>
-      <div className="auth-layout">
-        <Outlet />
-      </div>
+      <Header />
+      <Outlet />
+      <Footer />
     </>
   );
 };
 
-export default AuthLayout;
+export default AdminLayout;

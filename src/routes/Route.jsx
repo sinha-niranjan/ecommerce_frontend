@@ -21,6 +21,8 @@ const Dashboard = Loadable(
 );
 const Home = Loadable(lazy(() => import("../Pages/Home/Home")));
 const Layout = Loadable(lazy(() => import("../Layout/Layout")));
+const AdminLayout = Loadable(lazy(() => import("../Layout/AdminLayout")));
+
 const ProductDetails = Loadable(
   lazy(() => import("../Pages/ProductDetails/ProductDetails"))
 );
@@ -48,7 +50,7 @@ const Router = () => {
           <Route path="sign-up" element={<SignUp />} />
         </Route>
 
-        <Route path="/admin" element={<Layout />}>
+        <Route path="/admin" element={<AdminLayout />}>
           <Route path="dashboard" element={<Dashboard />} />
         </Route>
       </Routes>

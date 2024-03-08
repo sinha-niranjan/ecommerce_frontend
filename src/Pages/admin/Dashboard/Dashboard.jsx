@@ -2,19 +2,39 @@ import React from "react";
 
 import "./Dashboard.scss";
 import { IoPersonOutline } from "react-icons/io5";
-import { useSelector } from "react-redux";
-import { useAllUsersMutation } from "../../../redux/api/userAPI";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  useAllUsersMutation,
+  useLogoutMutation,
+} from "../../../redux/api/userAPI";
+import { userdata } from "../../../redux/reducer/userReducer";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigate = useNavigate("/");
+  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userReducer);
   const [allUsers] = useAllUsersMutation();
+  const [logout] = useLogoutMutation();
+  const accessToken = localStorage.getItem("AccessToken");
 
   const allUserHandler = async () => {
-    const accessToken =  localStorage.getItem("AccessToken");
-
     try {
       const res = await allUsers(accessToken);
       console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const logoutHandler = async () => {
+    try {
+      localStorage.setItem("AccessToken", "");
+      localStorage.setItem("RefreshToken", "");
+      await logout(accessToken);
+
+      dispatch(userdata(null));
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -28,7 +48,7 @@ const Dashboard = () => {
           </div>
           <div className="details">
             <p>Welcome back</p>
-            <h3>{user.email}</h3>
+            <h3>{user?.email}</h3>
           </div>
         </div>
 
@@ -37,19 +57,19 @@ const Dashboard = () => {
             <p onClick={allUserHandler}>All Users</p>
           </div>
           <div className="option">
-            <p>Orders</p>
+            <p>All Orders</p>
           </div>{" "}
           <div className="option">
-            <p>Whislist</p>
+            <p>All Products</p>
           </div>{" "}
           <div className="option">
-            <p>Addresses</p>
+            <p>Create Product</p>
           </div>{" "}
           <div className="option">
             <p>Account Details</p>
           </div>{" "}
           <div className="option">
-            <p>Logout</p>
+            <p onClick={logoutHandler}>Logout</p>
           </div>
         </div>
       </div>
