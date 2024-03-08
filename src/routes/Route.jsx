@@ -6,6 +6,7 @@ import AuthLayout from "../Layout/AuthLayout";
 import Login from "../Pages/sign-in/Login";
 import SignUp from "../Pages/sign-up/SignUp";
 import { authenticated } from "../utils/authentication";
+
 const Loadable = (Component) => (props) => {
   return (
     <Suspense fallback={<Loader />}>
@@ -15,7 +16,9 @@ const Loadable = (Component) => (props) => {
 };
 
 const Profile = Loadable(lazy(() => import("../Pages/profile/Profile")));
-
+const Dashboard = Loadable(
+  lazy(() => import("../Pages/admin/Dashboard/Dashboard"))
+);
 const Home = Loadable(lazy(() => import("../Pages/Home/Home")));
 const Layout = Loadable(lazy(() => import("../Layout/Layout")));
 const ProductDetails = Loadable(
@@ -43,6 +46,10 @@ const Router = () => {
         <Route path="/auth" element={<AuthLayout />}>
           <Route path="sign-in" element={<Login />} />
           <Route path="sign-up" element={<SignUp />} />
+        </Route>
+
+        <Route path="/admin" element={<Layout />}>
+          <Route path="dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -17,7 +17,7 @@ const Profile = () => {
     // const refreshToken = cookie[1];
 
     const accessToken = localStorage.getItem("AccessToken");
-    const refreshToken = localStorage.getItem("RefreshToken");
+    // const refreshToken = localStorage.getItem("RefreshToken");
 
     // console.log(accessToken, refreshToken);
     localStorage.setItem("AccessToken", null);

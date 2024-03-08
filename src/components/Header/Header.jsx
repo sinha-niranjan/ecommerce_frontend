@@ -15,7 +15,6 @@ const Header = () => {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.userReducer);
 
-  
   return (
     <>
       <div className="discount">
@@ -64,10 +63,10 @@ const Header = () => {
               className="proudct-categories"
               // style={{ display: isOpen ? "block" : "none" }}
             >
-              {Productcategroies.map((category,ind) => (
+              {Productcategroies.map((category, ind) => (
                 <div key={ind}>
                   {" "}
-                  <p >{category.text}</p>{" "}
+                  <p>{category.text}</p>{" "}
                 </div>
               ))}
             </div>
@@ -82,7 +81,13 @@ const Header = () => {
           </div>
           <div
             className="account"
-            onClick={() => (user ? navigate("/my-profile") : navigate("/auth/sign-in"))}
+            onClick={() =>
+              user
+                ? user.role === "admin"
+                  ? navigate("/admin/dashboard")
+                  : navigate("/my-profile")
+                : navigate("/auth/sign-in")
+            }
           >
             <IoPersonOutline />
             <p>{user ? user.name : "Account"}</p>

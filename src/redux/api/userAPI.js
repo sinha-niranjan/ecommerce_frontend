@@ -38,7 +38,16 @@ export const userAPI = createApi({
         url: "tokenLogin",
         method: "GET",
         headers: {
-          Authorization: ` Bearer ${accessToken}`,
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }),
+    }),
+    allUsers: builder.mutation({
+      query: (accessToken) => ({
+        url: "/admin/all-users",
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
         },
       }),
     }),
@@ -50,4 +59,5 @@ export const {
   useLoginMutation,
   useLogoutMutation,
   useTokenExistMutation,
+  useAllUsersMutation
 } = userAPI;
