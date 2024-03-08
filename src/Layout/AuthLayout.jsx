@@ -7,11 +7,13 @@ const AuthLayout = () => {
   const { user } = useSelector((state) => state.userReducer);
   const navigate = useNavigate();
 
+  console.log(user)
+
   useEffect(() => {
     if (user !== null) {
       navigate("/");
     }
-  }, []);
+  });
 
   return (
     <>
