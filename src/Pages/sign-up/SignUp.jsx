@@ -6,16 +6,38 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { PiArrowRightBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import avatarImage from "../../assets/images/logo/avatar.png";
+import { useNewUserMutation } from "../../redux/api/userAPI";
+import { useDispatch } from "react-redux";
+import { userdata } from "../../redux/reducer/userReducer";
 
 const SignUp = () => {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const dispatch = useDispatch();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [open, setOpen] = useState(false);
   const [avatar, setAvatar] = useState("");
-  const [date, setDate] = useState();
+  const [dob, setDob] = useState("");
+  const [newUser] = useNewUserMutation();
 
   const navigate = useNavigate();
+
+  const registerHandler = async (e) => {
+    // e.preventDefault();
+    // console.log({ name, email, dob, password, avatar });
+    try {
+      const res = await newUser({ name, email, dob, password, avatar });
+      const data = res?.data?.data;
+
+      localStorage.setItem("AccessToken", data.accessToken);
+      localStorage.setItem("RefreshToken", data.refreshToken);
+
+      dispatch(userdata(data?.createdUser));
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="signUp-main-box">
@@ -24,12 +46,12 @@ const SignUp = () => {
       </div>
 
       <div className="signUp-inner-box">
-      <h2>Sign up</h2>
+        <h2>Sign up</h2>
         <img
           src={avatar ? URL.createObjectURL(avatar) : avatarImage}
           alt="avatar-image"
         />
-        
+
         <form action="">
           <div className="input-box-name">
             <p>Name</p>
@@ -86,12 +108,12 @@ const SignUp = () => {
             <p>Date of birth</p>
             <input
               type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
+              value={dob}
+              onChange={(e) => setDob(e.target.value)}
             />
           </div>
-          <div className="signUp-btn">
-            <p>SIGN IN</p>
+          <div className="signUp-btn" onClick={registerHandler}>
+            <p>SIGN UP</p>
             <PiArrowRightBold />
           </div>
         </form>

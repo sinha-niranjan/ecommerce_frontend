@@ -1,10 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const config = {
-  headers: { "Content-Type": "application/json" },
-  withCredentials: true,
-};
-
 export const userAPI = createApi({
   reducerPath: "userApi",
   baseQuery: fetchBaseQuery({
@@ -13,11 +8,10 @@ export const userAPI = createApi({
   tagTypes: ["users"],
   endpoints: (builder) => ({
     newUser: builder.mutation({
-      query: ({ formData }) => ({
+      query: (formData) => ({
         url: "register",
         method: "POST",
         body: formData,
-        headers: { "Content-Type": "application/json" },
       }),
       invalidatesTags: ["users"],
     }),
@@ -51,5 +45,9 @@ export const userAPI = createApi({
   }),
 });
 
-export const { useNewUserMutation, useLoginMutation, useLogoutMutation, useTokenExistMutation } =
-  userAPI;
+export const {
+  useNewUserMutation,
+  useLoginMutation,
+  useLogoutMutation,
+  useTokenExistMutation,
+} = userAPI;
